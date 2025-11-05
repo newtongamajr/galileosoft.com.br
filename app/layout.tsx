@@ -9,6 +9,8 @@ import FloatingButton from '@/components/FloatingButton';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import ToasterProvider from '@/components/ToasterProvider';
+import SkipNavigation from '@/components/SkipNavigation';
+import ScrollProgress from '@/components/ScrollProgress';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -65,9 +67,13 @@ export default function RootLayout({
   return (
     <html className='scroll-smooth' lang="pt">
       <body className={`scroll-smooth ${inter.className}`}>
+        <ScrollProgress />
+        <SkipNavigation />
         <ToasterProvider />
         <Navbar />
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
         <Footer />
         <FloatingButton />
         <Suspense>

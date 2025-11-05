@@ -1,0 +1,9 @@
+<svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="28" y="20" width="56" height="72" rx="4" fill="#793BCF"/>
+  <rect x="36" y="32" width="40" height="6" rx="2" fill="#79F725"/>
+  <rect x="36" y="44" width="32" height="4" rx="1" fill="#372157"/>
+  <rect x="36" y="52" width="36" height="4" rx="1" fill="#372157"/>
+  <rect x="36" y="60" width="28" height="4" rx="1" fill="#372157"/>
+  <rect x="36" y="72" width="40" height="12" rx="2" fill="#79F725"/>
+  <text x="56" y="81" font-family="monospace" font-size="8" font-weight="bold" fill="#372157" text-anchor="middle">NFe</text>
+</svg>

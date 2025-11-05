@@ -1,0 +1,7 @@
+<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="120" fill="transparent"/>
+  <circle cx="60" cy="60" r="40" fill="#79F725"/>
+  <circle cx="60" cy="60" r="30" fill="#372157"/>
+  <path d="M50 60L60 70L75 45" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="120" y="75" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#79F725">CPlug</text>
+</svg>

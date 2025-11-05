@@ -10,6 +10,8 @@ import SecundaryText from "@/components/SecundaryText";
 import SecundaryHeading from "@/components/SecundaryHeading";
 import TertiaryHeading from "@/components/TertiaryHeading";
 import PrimaryText from "@/components/PrimaryText";
+import FAQ from "@/components/FAQ";
+import Testimonials from "@/components/Testimonials";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,6 +29,54 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+
+  const testimonials = [
+    {
+      name: "Carlos Silva",
+      role: "Diretor Comercial",
+      company: "TechVendas Distribuidora",
+      content: "O Ploomes transformou nossa gestão comercial. Aumentamos 40% nas vendas em 6 meses com visibilidade total do pipeline."
+    },
+    {
+      name: "Maria Santos",
+      role: "Proprietária",
+      company: "Restaurante Sabor & Arte",
+      content: "Com o CPlug, reduzimos erros de pedidos em 90% e nosso delivery ficou muito mais organizado. Sistema intuitivo e suporte excelente!"
+    },
+    {
+      name: "João Oliveira",
+      role: "Gerente",
+      company: "Mercado Bom Preço",
+      content: "Controle de estoque impecável! O CPlug nos ajudou a reduzir perdas e melhorar o giro de produtos. Recomendo muito!"
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: "Quais soluções a GalileoSoft oferece?",
+      answer: "Oferecemos uma ampla gama de soluções: CRM Ploomes para gestão de vendas complexas, sistema CPlug para pequeno varejo e food service, ERPFlex para gestão empresarial, Mobbiz para gestão de pedidos, Saurus para força de vendas, além de desenvolvimento de software personalizado."
+    },
+    {
+      question: "O CPlug funciona sem internet?",
+      answer: "Sim! O CPlug funciona tanto online quanto offline. Você nunca para de vender, mesmo se a internet cair. Quando a conexão for restabelecida, os dados são sincronizados automaticamente."
+    },
+    {
+      question: "Quanto tempo leva para implementar um sistema?",
+      answer: "O tempo varia conforme a complexidade do projeto. Sistemas como CPlug podem ser implementados em 1-2 semanas. Projetos maiores como CRM ou ERP levam de 4 a 8 semanas, incluindo treinamento e migração de dados."
+    },
+    {
+      question: "Vocês oferecem treinamento e suporte?",
+      answer: "Sim! Fornecemos treinamento completo para sua equipe e suporte técnico especializado. Nosso time está disponível para ajudar sempre que você precisar."
+    },
+    {
+      question: "Os sistemas podem ser customizados?",
+      answer: "Absolutamente! Todos os nossos sistemas podem ser customizados para atender as necessidades específicas do seu negócio. Além disso, oferecemos desenvolvimento de software 100% personalizado."
+    },
+    {
+      question: "Como funciona a contratação?",
+      answer: "É simples! Agende uma reunião com nossos consultores, faremos um diagnóstico das suas necessidades, apresentaremos a solução ideal e cuidaremos de toda a implementação. Entre em contato pelo WhatsApp ou pelo formulário abaixo."
+    }
+  ];
 
   const cards = [
     <Card key={'smartManagement'} bgColor="bg-galileoGray-400">
@@ -96,6 +146,7 @@ export default function Home() {
             className="object-contain absolute"
             fill
             sizes="50vw"
+            priority
           />
         </div>
         <section className="py-10 md:py-3 h-[95vh] relative w-full" id="heroSection">
@@ -107,6 +158,7 @@ export default function Home() {
                   alt="Luneta: GalileoSoft visando novos horizontes"
                   width={300}
                   height={300}
+                  priority
                 />
               </div>
               <PrimaryHeading>
@@ -186,7 +238,11 @@ export default function Home() {
           </ContentContainer>
         </section>
 
-        <section className="relative w-full bg-galileoPurple-900" id="contactForm">
+        <Testimonials testimonials={testimonials} />
+
+        <FAQ items={faqItems} subtitle="Tire suas dúvidas sobre nossas soluções" />
+
+        <section className="relative w-full bg-galileoPurple-400" id="contactForm">
           <ContentContainer className="w-full flex flex-col gap-x-20 gap-y-2 justify-between items-start relative z-10 my-10">
             <div className="mx-auto">
               <SecundaryHeading className="text-center">

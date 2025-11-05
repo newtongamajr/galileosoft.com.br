@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <nav
-      x-componentname="Navbar"
+      aria-label="Navegação principal"
       className="bg-purple-900/40 fixed w-full z-20 shadow-md backdrop-blur-sm"
     >
       <div className="flex justify-between max-w-7xl h-16 mx-auto px-6 lg:px-8">
@@ -32,6 +32,7 @@ export default function Navbar() {
             href="#"
             onClick={() => scrollToTop()}
             className="fill-white text-2xl font-bold relative w-[210px] h-full"
+            aria-label="GalileoSoft - Voltar ao topo"
           >
             <Image
               src="/logoGalileoSoft.svg"
@@ -50,6 +51,7 @@ export default function Navbar() {
                 className={`${
                   pathname === link.href ? "bg-purple-700/50" : ""
                 } text-white px-3 py-2 rounded-md text-md lg:text-lg font-medium hover:bg-purple-700`}
+                aria-current={pathname === link.href ? "page" : undefined}
               >
                 {link.text}
               </Link>
@@ -58,12 +60,22 @@ export default function Navbar() {
         </div>
         <div className="flex sm:hidden h-full">
           {showLinks ? (
-            <button onClick={() => setShowLinks(false)} className="p-3">
-              <MdOutlineClose className="text-white w-8 h-8" />
+            <button
+              onClick={() => setShowLinks(false)}
+              className="p-3"
+              aria-label="Fechar menu"
+              aria-expanded="true"
+            >
+              <MdOutlineClose className="text-white w-8 h-8" aria-hidden="true" />
             </button>
           ) : (
-            <button onClick={() => setShowLinks(true)} className="p-3">
-              <GiHamburgerMenu className="text-white w-8 h-8" />
+            <button
+              onClick={() => setShowLinks(true)}
+              className="p-3"
+              aria-label="Abrir menu"
+              aria-expanded="false"
+            >
+              <GiHamburgerMenu className="text-white w-8 h-8" aria-hidden="true" />
             </button>
           )}
         </div>
