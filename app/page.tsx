@@ -10,6 +10,21 @@ import SecundaryText from "@/components/SecundaryText";
 import SecundaryHeading from "@/components/SecundaryHeading";
 import TertiaryHeading from "@/components/TertiaryHeading";
 import PrimaryText from "@/components/PrimaryText";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'GalileoSoft - Tecnologia para Gestão Empresarial',
+  description: 'Explore um universo de possibilidades com soluções tecnológicas para simplificar sua gestão. CRM Ploomes, sistema CPlug para varejo e food service, ERP e desenvolvimento personalizado.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'GalileoSoft - Tecnologia para Gestão Empresarial',
+    description: 'Explore um universo de possibilidades com soluções tecnológicas',
+    url: 'https://galileosoft.com.br',
+    type: 'website',
+  },
+};
 
 export default function Home() {
 

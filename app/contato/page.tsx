@@ -8,6 +8,21 @@ import { FaInstagram } from "react-icons/fa"
 import PrimaryHeading from "@/components/PrimaryHeading"
 import SecundaryText from "@/components/SecundaryText"
 import SecundaryHeading from "@/components/SecundaryHeading"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Contato - Entre em contato com a GalileoSoft',
+  description: 'Entre em contato com a GalileoSoft. Tire suas dúvidas sobre CRM, ERP, PDV e soluções personalizadas. Atendemos em Maringá-PR e todo Brasil.',
+  alternates: {
+    canonical: '/contato',
+  },
+  openGraph: {
+    title: 'Contato - GalileoSoft',
+    description: 'Entre em contato e modernize sua empresa',
+    url: 'https://galileosoft.com.br/contato',
+    type: 'website',
+  },
+};
 
 export default function Contato() {
   return (

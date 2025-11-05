@@ -137,10 +137,10 @@ export default function Footer() {
           <div className="flex flex-col space-y-2">
             <Link
               target="_blank"
-              href="/pipefy"
+              href="/cplug"
               className="cursor-pointer underline underline-offset-4 text-center hover:scale-110 transform transition duration-500"
             >
-              Pipefy
+              CPlug
             </Link>
             <Link
               target="_blank"

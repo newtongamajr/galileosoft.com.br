@@ -5,6 +5,21 @@ import Carousel from "@/components/Carousel";
 import ContactForm from "@/components/ContactForm";
 import ContentContainer from "@/components/ContentContainer";
 import ButtonGreen from "@/components/ButtonGreen";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Serviços - Soluções em Gestão Empresarial',
+  description: 'Conheça nossos serviços: CRM Ploomes, Sistema CPlug para varejo e food service, ERPFlex, gestão de pedidos Mobbiz e desenvolvimento personalizado.',
+  alternates: {
+    canonical: '/servicos',
+  },
+  openGraph: {
+    title: 'Serviços - GalileoSoft',
+    description: 'Soluções completas para seu negócio',
+    url: 'https://galileosoft.com.br/servicos',
+    type: 'website',
+  },
+};
 
 export default function Servicos() {
   const cardsForClients = [
@@ -112,28 +127,28 @@ export default function Servicos() {
       </Link>
     </Card>,
     <Card
-      key={"pipefy"}
+      key={"cplug"}
       className="flex flex-col justify-between h-full text-black"
       bgColor="bg-galileoPurple-250"
     >
       <div className="relative h-28 w-28 mx-auto mb-6">
         <Image
-          src="/servicosPipefy.svg"
-          alt="Ícone Pipefy"
+          src="/servicosCplug.svg"
+          alt="Ícone CPlug"
           className="object-contain absolute"
           fill
           sizes="112px"
         />
       </div>
-      <h3 className="text-2xl font-bold text-center mb-2">Pipefy</h3>
+      <h3 className="text-2xl font-bold text-center mb-2">CPlug</h3>
       <p className="leading-normal">
-        Automatize processos e aumente a produtividade da sua equipe.
+        Solução completa para pequeno varejo e food service.
       </p>
       <Link
-        href="/pipefy"
+        href="/cplug"
         className="block text-white text-center text-lg font-bold rounded-lg mt-2 px-6 py-3  bg-galileoPurple-500 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"
       >
-        Estruture seus processos!
+        Modernize seu negócio!
       </Link>
     </Card>,
     <Card

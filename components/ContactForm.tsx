@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import axios from "axios"
+import toast from "react-hot-toast"
 
 import Input from "./Input"
 import SecundaryHeading from "./SecundaryHeading";
@@ -25,6 +26,7 @@ export interface ContactFormValues {
 
 export default function ContactForm() {
   const [isFormSubmittedSuccessfully, setIsFormSubmittedSuccessfully] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formValues, setFormValues] = useState<ContactFormValues>({
     name: "",
     email: "",
@@ -40,8 +42,8 @@ export default function ContactForm() {
       type: "text",
       placeholder: "Ex: Gustavo Almeida",
       label: "Nome completo (obrigatório)",
-      errorMessage: "O nome deve ter entre 3-16 caracteres e não deve incluir caracteres especiais.",
-      pattern: "^[A-Za-z ]{3,16}$",
+      errorMessage: "O nome deve ter pelo menos 3 caracteres.",
+      pattern: "^[A-Za-zÀ-ÿ ]{3,50}$",
       required: true
     },
     {
@@ -80,13 +82,22 @@ export default function ContactForm() {
     },
   ]
 
-  const sendEmail = (values: ContactFormValues) => {
-    axios.post("/api/contato", { messageBody: `Nome: ${values.name} \nEmail: ${values.email} \nPhone: ${values.phone} \nEmpresa: ${values.companyName} \nMensagem: ${values.message}` })
-      .then(() => {
-        alert("Email enviado com sucesso. Um de nossos consultores entrará em contato em breve para entender como a GalileoSoft pode te ajudar.")
-        setIsFormSubmittedSuccessfully(true)
-      })
-      .catch(() => alert("Sentimos muito mas ocorreu um erro no envio dos seus dados. Por favor utilize um dos canais de contato alternativos abaixo e daremos prioridade para o seu atendimento."))
+  const sendEmail = async (values: ContactFormValues) => {
+    setIsSubmitting(true);
+    const loadingToast = toast.loading('Enviando mensagem...');
+
+    try {
+      await axios.post("/api/contato", {
+        messageBody: `Nome: ${values.name} \nEmail: ${values.email} \nPhone: ${values.phone} \nEmpresa: ${values.companyName} \nMensagem: ${values.message}`
+      });
+
+      toast.success('Email enviado com sucesso! Em breve entraremos em contato.', { id: loadingToast });
+      setIsFormSubmittedSuccessfully(true);
+    } catch (error) {
+      toast.error('Erro ao enviar mensagem. Por favor, tente pelos canais alternativos.', { id: loadingToast });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -94,8 +105,21 @@ export default function ContactForm() {
     sendEmail(formValues)
   }
 
+  const formatPhone = (value: string) => {
+    // Remove tudo que não é número
+    const numbers = value.replace(/\D/g, '');
+    return numbers;
+  }
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    let value = e.target.value;
+
+    // Aplicar máscara apenas para telefone
+    if (e.target.name === 'phone') {
+      value = formatPhone(value);
+    }
+
+    setFormValues({ ...formValues, [e.target.name]: value })
   }
 
   return (
@@ -144,8 +168,12 @@ export default function ContactForm() {
               ))
             }
 
-            <button type="submit" className="text-white text-center text-lg font-bold rounded-lg mt-2 px-6 py-3 bg-gradient-to-br from-galileoGreen-500 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-              Enviar
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="text-white text-center text-lg font-bold rounded-lg mt-2 px-6 py-3 bg-gradient-to-br from-galileoGreen-500 to-green-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
+            >
+              {isSubmitting ? 'Enviando...' : 'Enviar'}
             </button>
           </form>
         </>

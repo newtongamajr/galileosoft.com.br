@@ -6,6 +6,18 @@ import ContentContainer from "@/components/ContentContainer";
 import ContactForm from "@/components/ContactForm"
 import Particles from "@/components/Particles";
 import ButtonPurple from "@/components/ButtonPurple";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ploomes CRM - O Maior CRM da América Latina | GalileoSoft",
+  description: "Ploomes é o maior CRM da América Latina para gestão de vendas complexas B2B. Funis personalizáveis, automação, propostas e relatórios completos.",
+  keywords: ["Ploomes", "CRM", "gestão vendas", "funil vendas", "automação", "B2B", "CRM América Latina"],
+  openGraph: {
+    title: "Ploomes CRM - O Maior CRM da América Latina",
+    description: "Gerencie vendas complexas com o CRM mais completo da América Latina",
+    type: "website",
+  }
+};
 
 export default function Ploomes() {
 
@@ -127,10 +139,10 @@ export default function Ploomes() {
                 />
               </div>
               <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
-                Organize sua gestão e alcance <span className="text-galileoGreen-300"> Resultados Reais</span>
+                O Maior CRM da <span className="text-galileoGreen-300">América Latina</span>
               </h1>
               <p className="text-base md:text-lg lg:text-xl xl:text-2xl">
-                Tenha o controle completo e integrado da sua equipe de atendimento em seus canais de comunicação.
+                Unifique pipelines de vendas, workflows, automação de propostas e relatórios em uma única plataforma. Desenvolvido especialmente para empresas com vendas complexas B2B.
               </p>
               <ButtonGreen target="_blank" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0W9SITQXSJThFdp-tp2cnXP5gTjJm1f0SFHGGigsmOc52UED6cwJDza31WnNn-q8sH78jStiDl?gv=true" className="mr-auto" >
                 Agendar reunião
@@ -151,10 +163,10 @@ export default function Ploomes() {
                 />
               </div>
               <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Experimente a <span className="text-galileoPurple-500">verdadeira revolução </span>no relacionamento com os clientes
+                <span className="text-galileoPurple-500">Visão 360° </span>dos seus clientes
               </h1>
               <p className="text-base md:text-lg lg:text-xl xl:text-2xl">
-                Seja no gerenciamento de vendas, atendimento ao cliente ou acompanhamento de leads, revolucione sua engrenagem de vendas.
+                Acesse o histórico completo de cada cliente: e-mails, ligações, propostas, negociações, produtos adquiridos, atividades pendentes e contratos vigentes. Tudo centralizado em um só lugar.
               </p>
               <ButtonPurple
                 target="_blank"
@@ -214,7 +226,7 @@ export default function Ploomes() {
             </div>
             <Card bgColor="bg-white">
               <h1 className="text-galileoPurple-500 text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-center">Junte-se a milhares de empresas</h1>
-              <p className="text-black text-2xl font-medium pb-3">Simplifique suas vendas com o maior CRM latinoamericando</p>
+              <p className="text-black text-2xl font-medium pb-3 text-center">Simplifique suas vendas com o maior CRM da América Latina</p>
               <div className="flex flex-row justify-evenly w-100">
                 <Image
                   src="/ploomes/iconClienteUnimed.png"
