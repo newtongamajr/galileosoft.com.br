@@ -120,7 +120,7 @@ export default function Ploomes() {
         />
         <div className="absolute right-[5vw] w-[35vw] h-[95vh] hidden md:block">
           <Image
-            src="/ploomes/logoPloomes.svg"
+            src="/ploomes/logoPloomesNovo.svg"
             alt="Logo Ploomes"
             className="object-contain absolute animate-pulse"
             fill
@@ -135,7 +135,7 @@ export default function Ploomes() {
             <div className="flex flex-col justify-center gap-5 text-white px-3 md:px-6 lg:px-8 md:w-2/3">
               <div className="mx-auto block md:hidden">
                 <Image
-                  src="/ploomes/logoPloomes.svg"
+                  src="/ploomes/logoPloomesNovo.svg"
                   alt="Logo Ploomes"
                   width={300}
                   height={300}
