@@ -189,6 +189,22 @@ export default function CPlugRestaurantes() {
           </ContentContainer>
         </section>
 
+        <section className="w-full bg-white py-12">
+          <ContentContainer className="flex flex-col md:flex-row items-center justify-center gap-6 text-center">
+            <div className="w-24 h-24 relative">
+              <Image
+                src="/cplug/seloParceiroAutorizado.svg"
+                alt="Parceiro Autorizado CPlug"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <p className="text-gray-700 text-base md:text-lg max-w-2xl">
+              <strong>GalileoSoft</strong> é parceiro autorizado <strong>CPlug</strong> - ConnectPlug, com suporte especializado e implementação personalizada para seu negócio.
+            </p>
+          </ContentContainer>
+        </section>
+
         <section className="relative w-full bg-galileoPurple-400" id="contactForm">
           <ContentContainer className="w-full grid grid-cols-1 gap-x-20 gap-y-2 justify-between items-start relative z-10 my-10">
             <div className="flex flex-col justify-between max-w-[900px] mx-auto">

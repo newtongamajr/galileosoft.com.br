@@ -270,6 +270,35 @@ export default function CPlug() {
           </ContentContainer>
         </section>
 
+        <section className="w-full flex bg-white relative py-16" id="cplug-about">
+          <ContentContainer className="flex flex-col md:flex-row items-center gap-10 py-6 z-10">
+            <div className="md:w-1/3 flex justify-center">
+              <div className="relative w-48 h-48">
+                <Image
+                  src="/cplug/seloParceiroAutorizado.svg"
+                  alt="Selo Parceiro Autorizado CPlug"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div className="md:w-2/3">
+              <h2 className="text-galileoPurple-500 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+                GalileoSoft - Parceiro Autorizado CPlug
+              </h2>
+              <p className="text-gray-700 text-base md:text-lg mb-4">
+                A <strong>ConnectPlug</strong> é uma empresa que proporciona ao empreendedor um ecossistema de soluções em software com tecnologia de ponta em Automação e Gestão completa de negócios - sistema para frente de caixa PDV, Gestão ERP e Autoatendimento.
+              </p>
+              <p className="text-gray-700 text-base md:text-lg mb-4">
+                Com foco em diversos segmentos (do food service a lojas de varejo em geral), presente em <strong>100% dos estados</strong>, auxiliando mais de <strong>58 mil usuários</strong> em todo o Brasil.
+              </p>
+              <p className="text-gray-700 text-base md:text-lg">
+                Como <strong>parceiro autorizado</strong>, a GalileoSoft oferece implementação especializada, suporte dedicado e consultoria personalizada para garantir que sua empresa extraia o máximo potencial do sistema CPlug.
+              </p>
+            </div>
+          </ContentContainer>
+        </section>
+
         <section className="relative w-full bg-galileoPurple-400" id="contactForm">
           <ContentContainer className="w-full grid grid-cols-1 gap-x-20 gap-y-2 justify-between items-start relative z-10 my-10">
             <div className="flex flex-col justify-between max-w-[900px] mx-auto">
