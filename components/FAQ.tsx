@@ -19,7 +19,7 @@ export default function FAQ({ items, title = "Perguntas Frequentes", subtitle }:
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex(prevIndex => prevIndex === index ? null : index);
   };
 
   return (
@@ -34,48 +34,60 @@ export default function FAQ({ items, title = "Perguntas Frequentes", subtitle }:
           </p>
         )}
         <div className="max-w-3xl mx-auto space-y-4">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <span className="font-bold text-galileoPurple-500 text-lg pr-4">
-                  {item.question}
-                </span>
-                <svg
-                  className={`w-6 h-6 text-galileoPurple-500 transition-transform duration-300 flex-shrink-0 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+          {items.map((item, index) => {
+            const isOpen = openIndex === index;
+
+            return (
               <div
-                id={`faq-answer-${index}`}
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-96" : "max-h-0"
-                }`}
+                key={index}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
               >
-                <div className="px-6 py-4 bg-gray-50 text-gray-700 leading-relaxed">
-                  {item.answer}
+                <button
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-galileoPurple-500 focus:ring-offset-2"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <span className="font-bold text-galileoPurple-500 text-lg pr-4">
+                    {item.question}
+                  </span>
+                  <svg
+                    className={`w-6 h-6 text-galileoPurple-500 transition-transform duration-300 flex-shrink-0 ${
+                      isOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Answer section */}
+                <div
+                  id={`faq-answer-${index}`}
+                  style={{
+                    maxHeight: isOpen ? '1000px' : '0',
+                    opacity: isOpen ? 1 : 0,
+                    transition: 'max-height 0.3s ease-in-out, opacity 0.3s ease-in-out'
+                  }}
+                  className="overflow-hidden"
+                  aria-hidden={!isOpen}
+                >
+                  <div className="px-6 py-4 bg-gray-50 text-gray-700 leading-relaxed">
+                    {item.answer}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </ContentContainer>
     </section>
