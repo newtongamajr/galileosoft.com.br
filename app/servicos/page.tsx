@@ -131,13 +131,13 @@ export default function Servicos() {
       className="flex flex-col justify-between h-full text-black"
       bgColor="bg-galileoPurple-250"
     >
-      <div className="relative h-28 w-28 mx-auto mb-6">
+      <div className="relative h-28 w-auto mx-auto mb-6" style={{width: '200px'}}>
         <Image
-          src="/servicosCplug.svg"
-          alt="Ícone CPlug"
+          src="/cplug/logoCPlug.svg"
+          alt="Logo CPlug"
           className="object-contain absolute"
           fill
-          sizes="112px"
+          sizes="200px"
         />
       </div>
       <h3 className="text-2xl font-bold text-center mb-2">CPlug</h3>
