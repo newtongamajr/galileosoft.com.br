@@ -28,7 +28,7 @@ export default function Servicos() {
       className="flex flex-col justify-between h-full text-black"
       bgColor="bg-white"
     >
-      <div className="relative h-28 w-28 mx-auto pb-6 mb-6">
+      <div className="relative h-28 w-28 mx-auto mb-6">
         <Image
           src="/ploomes/logoPloomesNovo.svg"
           alt="Logo Ploomes"
