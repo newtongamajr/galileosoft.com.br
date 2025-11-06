@@ -171,9 +171,14 @@ export default function Ploomes() {
               <p className="text-base md:text-lg lg:text-xl xl:text-2xl">
                 Unifique pipelines de vendas, workflows, automação de propostas e relatórios em uma única plataforma. Desenvolvido especialmente para empresas com vendas complexas B2B.
               </p>
-              <ButtonGreen target="_blank" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0W9SITQXSJThFdp-tp2cnXP5gTjJm1f0SFHGGigsmOc52UED6cwJDza31WnNn-q8sH78jStiDl?gv=true" className="mr-auto" >
-                Agendar reunião
-              </ButtonGreen>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <ButtonGreen target="_blank" href="https://www.ploomes.com/ploomes-crm-completo?utm_source=parceiro&utm_campaign=2q6r9sfhx6">
+                  Experimentar Ploomes
+                </ButtonGreen>
+                <ButtonGreen target="_blank" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0W9SITQXSJThFdp-tp2cnXP5gTjJm1f0SFHGGigsmOc52UED6cwJDza31WnNn-q8sH78jStiDl?gv=true">
+                  Agendar reunião
+                </ButtonGreen>
+              </div>
             </div>
           </ContentContainer>
         </section>

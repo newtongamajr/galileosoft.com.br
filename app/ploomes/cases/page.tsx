@@ -225,7 +225,13 @@ export default function PloomesCase() {
               <p className="text-black text-lg md:text-xl mb-8">
                 Agende uma demonstração e descubra como o Ploomes pode transformar suas vendas
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+                <ButtonGreen
+                  target="_blank"
+                  href="https://www.ploomes.com/ploomes-crm-completo?utm_source=parceiro&utm_campaign=2q6r9sfhx6"
+                >
+                  Experimentar Ploomes
+                </ButtonGreen>
                 <ButtonGreen
                   target="_blank"
                   href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0W9SITQXSJThFdp-tp2cnXP5gTjJm1f0SFHGGigsmOc52UED6cwJDza31WnNn-q8sH78jStiDl?gv=true"

@@ -4,13 +4,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { MdOutlineClose } from 'react-icons/md'
-import { MdKeyboardArrowDown } from 'react-icons/md'
+import { MdKeyboardArrowDown, MdKeyboardArrowRight } from 'react-icons/md'
 import Image from 'next/image';
 
 
 export default function Navbar() {
   const [showLinks, setShowLinks] = useState(false)
-  const [showPloomesDropdown, setShowPloomesDropdown] = useState(false)
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false)
+  const [showPloomesSubmenu, setShowPloomesSubmenu] = useState(false)
   const pathname = usePathname();
 
   const scrollToTop = () => {
@@ -19,8 +20,16 @@ export default function Navbar() {
 
   const navLinks = [
     {href:"/", text: "Home"},
-    {href:"/servicos", text: "Serviços"},
     {href:"/contato", text: "Contato"},
+  ]
+
+  const servicesLinks = [
+    {href:"/servicos", text: "Principal"},
+    {href:"/saurus", text: "Saurus"},
+    {href:"/mobbiz", text: "Mobbiz"},
+    {href:"/erpflex", text: "ERPFlex"},
+    {href:"/cplug", text: "CPlug"},
+    {href:"/customDev", text: "Desenvolvimento Personalizado"},
   ]
 
   const ploomesLinks = [
@@ -65,23 +74,26 @@ export default function Navbar() {
               </Link>
             );
           })}
-          {/* Ploomes Dropdown */}
+          {/* Services Dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setShowPloomesDropdown(true)}
-            onMouseLeave={() => setShowPloomesDropdown(false)}
+            onMouseEnter={() => setShowServicesDropdown(true)}
+            onMouseLeave={() => {
+              setShowServicesDropdown(false);
+              setShowPloomesSubmenu(false);
+            }}
           >
             <button
               className={`${
-                pathname.startsWith('/ploomes') ? "bg-purple-700/50" : ""
+                pathname.startsWith('/servicos') || pathname.startsWith('/ploomes') || pathname.startsWith('/saurus') || pathname.startsWith('/mobbiz') || pathname.startsWith('/erpflex') || pathname.startsWith('/cplug') || pathname.startsWith('/customDev') ? "bg-purple-700/50" : ""
               } text-white px-3 py-2 rounded-md text-md lg:text-lg font-medium hover:bg-purple-700 flex items-center gap-1`}
             >
-              Ploomes
-              <MdKeyboardArrowDown className={`transition-transform ${showPloomesDropdown ? 'rotate-180' : ''}`} />
+              Serviços
+              <MdKeyboardArrowDown className={`transition-transform ${showServicesDropdown ? 'rotate-180' : ''}`} />
             </button>
-            {showPloomesDropdown && (
-              <div className="absolute top-full left-0 mt-1 bg-purple-800 rounded-md shadow-lg py-2 min-w-[200px]">
-                {ploomesLinks.map((link) => (
+            {showServicesDropdown && (
+              <div className="absolute top-full left-0 mt-1 bg-purple-800 rounded-md shadow-lg py-2 min-w-[250px]">
+                {servicesLinks.map((link) => (
                   <Link
                     key={link.text}
                     href={link.href}
@@ -92,6 +104,36 @@ export default function Navbar() {
                     {link.text}
                   </Link>
                 ))}
+                {/* Ploomes Submenu */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setShowPloomesSubmenu(true)}
+                  onMouseLeave={() => setShowPloomesSubmenu(false)}
+                >
+                  <button
+                    className={`${
+                      pathname.startsWith('/ploomes') ? "bg-purple-700" : ""
+                    } w-full text-left text-white px-4 py-2 text-sm hover:bg-purple-700 flex items-center justify-between`}
+                  >
+                    Ploomes
+                    <MdKeyboardArrowRight />
+                  </button>
+                  {showPloomesSubmenu && (
+                    <div className="absolute left-full top-0 ml-1 bg-purple-900 rounded-md shadow-lg py-2 min-w-[200px]">
+                      {ploomesLinks.map((link) => (
+                        <Link
+                          key={link.text}
+                          href={link.href}
+                          className={`${
+                            pathname === link.href ? "bg-purple-700" : ""
+                          } block text-white px-4 py-2 text-sm hover:bg-purple-700`}
+                        >
+                          {link.text}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
@@ -121,9 +163,9 @@ export default function Navbar() {
       {showLinks ? (
         <div
           onClick={() => setShowLinks(false)}
-          className="absolute top-16 left-0 right-0 bottom-0 pt-4 pb-16 px-4 h-screen flex justify-center align-middle bg-gray-900"
+          className="absolute top-16 left-0 right-0 bottom-0 pt-4 pb-16 px-4 h-screen flex justify-center align-middle bg-gray-900 overflow-y-auto"
         >
-          <div className="my-auto text-center flex flex-col gap-12 w-3/5">
+          <div className="my-auto text-center flex flex-col gap-8 w-3/5">
             {navLinks.map((link) => {
               return (
                 <Link
@@ -137,10 +179,10 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            {/* Ploomes Section Mobile */}
+            {/* Services Section Mobile */}
             <div className="flex flex-col gap-3">
-              <div className="text-white text-xl font-bold mb-2">Ploomes</div>
-              {ploomesLinks.map((link) => (
+              <div className="text-white text-xl font-bold mb-2">Serviços</div>
+              {servicesLinks.map((link) => (
                 <Link
                   key={link.text}
                   href={link.href}
@@ -151,6 +193,21 @@ export default function Navbar() {
                   {link.text}
                 </Link>
               ))}
+              {/* Ploomes Submenu Mobile */}
+              <div className="ml-4 flex flex-col gap-2 mt-2">
+                <div className="text-white text-lg font-semibold mb-1">Ploomes</div>
+                {ploomesLinks.map((link) => (
+                  <Link
+                    key={link.text}
+                    href={link.href}
+                    className={`${
+                      pathname === link.href ? "bg-purple-700/50" : ""
+                    } text-white px-3 py-2 rounded-md text-base hover:bg-purple-700`}
+                  >
+                    {link.text}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -30,8 +30,8 @@ export default function Servicos() {
     >
       <div className="relative h-28 w-28 mx-auto pb-6 mb-6">
         <Image
-          src="/servicosPloomes.svg"
-          alt="Ícone Ploomes"
+          src="/ploomes/logoPloomesNovo.svg"
+          alt="Logo Ploomes"
           className="object-contain absolute"
           fill
           sizes="112px"

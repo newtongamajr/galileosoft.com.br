@@ -154,6 +154,12 @@ export default function PloomesRecursos() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
                 <ButtonGreen
                   target="_blank"
+                  href="https://www.ploomes.com/ploomes-crm-completo?utm_source=parceiro&utm_campaign=2q6r9sfhx6"
+                >
+                  Experimentar Ploomes
+                </ButtonGreen>
+                <ButtonGreen
+                  target="_blank"
                   href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0W9SITQXSJThFdp-tp2cnXP5gTjJm1f0SFHGGigsmOc52UED6cwJDza31WnNn-q8sH78jStiDl?gv=true"
                 >
                   Agendar Demonstração
@@ -238,7 +244,13 @@ export default function PloomesRecursos() {
                 <p className="text-black text-lg md:text-xl mb-8">
                   Agende uma demonstração personalizada e descubra como o Ploomes pode revolucionar suas vendas
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+                  <ButtonGreen
+                    target="_blank"
+                    href="https://www.ploomes.com/ploomes-crm-completo?utm_source=parceiro&utm_campaign=2q6r9sfhx6"
+                  >
+                    Experimentar Ploomes
+                  </ButtonGreen>
                   <ButtonPurple
                     target="_blank"
                     href="https://api.whatsapp.com/send?phone=5544997530950&text=Ol%C3%A1,%20gostaria%20de%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20Ploomes"
