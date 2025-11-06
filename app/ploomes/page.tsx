@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ButtonGreen from "@/components/ButtonGreen";
 import Card from "@/components/Card";
 import Carousel from "@/components/Carousel";
@@ -20,6 +21,27 @@ export const metadata: Metadata = {
 };
 
 export default function Ploomes() {
+
+  const testimonials = [
+    {
+      company: "Grupo Moura",
+      author: "Gerente Comercial",
+      text: "Reduzimos o tempo de criação de propostas de 30 minutos para apenas 2 minutos. O Ploomes transformou nossa operação comercial.",
+      logo: "/ploomes/cases/moura.svg"
+    },
+    {
+      company: "Philips",
+      author: "Thiago Faustinoni Carvalho, Gerente de Atendimento ao Cliente",
+      text: "Escolhemos o Ploomes pela agilidade que a plataforma proporcionou aos nossos processos e demandas.",
+      logo: "/ploomes/iconClientePhilips.png"
+    },
+    {
+      company: "Unimed",
+      author: "Flávia Schiochet, Gerente de Mercado Estratégico",
+      text: "Aumentamos significativamente a produtividade dos vendedores e agora gerenciamos todas as operações comerciais através do Ploomes.",
+      logo: "/ploomes/iconClienteUnimed.png"
+    }
+  ];
 
   const cardsLightSection = [
     <Card key={'crm'} bgColor="bg-white">
@@ -269,6 +291,94 @@ export default function Ploomes() {
                 Seja o próximo
               </ButtonPurple>
             </Card>
+          </ContentContainer>
+        </section>
+
+        <section className="w-full bg-galileoPurple-100 relative py-16" id="ploomes-testimonials">
+          <ContentContainer className="flex flex-col z-10">
+            <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
+              O que dizem <span className="text-galileoPurple-500">nossos clientes</span>
+            </h2>
+            <p className="text-black text-lg md:text-xl text-center mb-12 max-w-3xl mx-auto">
+              Empresas de todos os portes confiam no Ploomes para gerenciar suas vendas
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-3 md:px-6 lg:px-8 mb-10">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} bgColor="bg-white">
+                  <div className="flex flex-col h-full">
+                    <div className="relative h-16 w-32 mx-auto mb-4">
+                      {testimonial.logo && (
+                        <Image
+                          src={testimonial.logo}
+                          alt={`Logo ${testimonial.company}`}
+                          className="object-contain"
+                          fill
+                          sizes="128px"
+                        />
+                      )}
+                    </div>
+                    <p className="text-black text-base italic mb-4 flex-grow">
+                      "{testimonial.text}"
+                    </p>
+                    <div className="border-t border-gray-200 pt-4">
+                      <p className="text-galileoPurple-500 font-semibold text-sm">
+                        {testimonial.company}
+                      </p>
+                      <p className="text-gray-600 text-xs">
+                        {testimonial.author}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <div className="text-center">
+              <Link href="/ploomes/cases">
+                <ButtonPurple className="font-bold">
+                  Ver Todos os Cases de Sucesso →
+                </ButtonPurple>
+              </Link>
+            </div>
+          </ContentContainer>
+        </section>
+
+        <section className="w-full bg-galileoPurple-400 relative py-16" id="ploomes-explore">
+          <ContentContainer className="flex flex-col z-10">
+            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center">
+              Explore o <span className="text-galileoGreen-300">Ploomes</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-3 md:px-6 lg:px-8">
+              <Card bgColor="bg-white">
+                <div className="text-center">
+                  <h3 className="text-galileoPurple-500 text-2xl font-bold mb-4">
+                    Cases de Sucesso
+                  </h3>
+                  <p className="text-black text-base mb-6">
+                    Conheça empresas como Grupo Moura, Philips, Unimed e muitas outras que transformaram suas vendas com o Ploomes. Resultados reais e comprovados.
+                  </p>
+                  <Link href="/ploomes/cases">
+                    <ButtonPurple className="font-bold">
+                      Ver Cases Completos →
+                    </ButtonPurple>
+                  </Link>
+                </div>
+              </Card>
+              <Card bgColor="bg-white">
+                <div className="text-center">
+                  <h3 className="text-galileoPurple-500 text-2xl font-bold mb-4">
+                    Recursos e Funcionalidades
+                  </h3>
+                  <p className="text-black text-base mb-6">
+                    Descubra todas as ferramentas disponíveis: funil de vendas, automação, propostas, relatórios, integrações e muito mais.
+                  </p>
+                  <Link href="/ploomes/recursos">
+                    <ButtonPurple className="font-bold">
+                      Conhecer Recursos →
+                    </ButtonPurple>
+                  </Link>
+                </div>
+              </Card>
+            </div>
           </ContentContainer>
         </section>
 
