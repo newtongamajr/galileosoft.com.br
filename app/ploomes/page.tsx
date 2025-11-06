@@ -122,9 +122,12 @@ export default function Ploomes() {
           <Image
             src="/ploomes/logoPloomes.svg"
             alt="Logo Ploomes"
-            className="object-contain absolute"
+            className="object-contain absolute animate-pulse"
             fill
             sizes="35vw"
+            style={{
+              animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+            }}
           />
         </div>
         <section className="py-10 md:py-3 h-[95vh] relative w-full" id="ploomes-heroSection">
@@ -141,6 +144,9 @@ export default function Ploomes() {
               <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
                 O Maior CRM da <span className="text-galileoGreen-300">América Latina</span>
               </h1>
+              <p className="text-base md:text-lg lg:text-xl mb-4">
+                Mais de <span className="text-galileoGreen-300 font-bold">2.000 empresas</span> confiam no Ploomes para transformar suas vendas
+              </p>
               <p className="text-base md:text-lg lg:text-xl xl:text-2xl">
                 Unifique pipelines de vendas, workflows, automação de propostas e relatórios em uma única plataforma. Desenvolvido especialmente para empresas com vendas complexas B2B.
               </p>
@@ -225,8 +231,8 @@ export default function Ploomes() {
               </ButtonGreen>
             </div>
             <Card bgColor="bg-white">
-              <h1 className="text-galileoPurple-500 text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-center">Junte-se a milhares de empresas</h1>
-              <p className="text-black text-2xl font-medium pb-3 text-center">Simplifique suas vendas com o maior CRM da América Latina</p>
+              <h1 className="text-galileoPurple-500 text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-center">Junte-se a mais de 2.000 empresas</h1>
+              <p className="text-black text-2xl font-medium pb-3 text-center">Que já confiam no Ploomes para simplificar suas vendas</p>
               <div className="flex flex-row justify-evenly w-100">
                 <Image
                   src="/ploomes/iconClienteUnimed.png"
