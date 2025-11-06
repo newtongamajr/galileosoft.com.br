@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import ButtonGreen from "@/components/ButtonGreen";
 import Card from "@/components/Card";
 import Carousel from "@/components/Carousel";
@@ -333,11 +332,9 @@ export default function Ploomes() {
               ))}
             </div>
             <div className="text-center">
-              <Link href="/ploomes/cases">
-                <ButtonPurple className="font-bold">
-                  Ver Todos os Cases de Sucesso →
-                </ButtonPurple>
-              </Link>
+              <ButtonPurple href="/ploomes/cases" className="font-bold">
+                Ver Todos os Cases de Sucesso →
+              </ButtonPurple>
             </div>
           </ContentContainer>
         </section>
@@ -356,11 +353,9 @@ export default function Ploomes() {
                   <p className="text-black text-base mb-6">
                     Conheça empresas como Grupo Moura, Philips, Unimed e muitas outras que transformaram suas vendas com o Ploomes. Resultados reais e comprovados.
                   </p>
-                  <Link href="/ploomes/cases">
-                    <ButtonPurple className="font-bold">
-                      Ver Cases Completos →
-                    </ButtonPurple>
-                  </Link>
+                  <ButtonPurple href="/ploomes/cases" className="font-bold">
+                    Ver Cases Completos →
+                  </ButtonPurple>
                 </div>
               </Card>
               <Card bgColor="bg-white">
@@ -371,11 +366,9 @@ export default function Ploomes() {
                   <p className="text-black text-base mb-6">
                     Descubra todas as ferramentas disponíveis: funil de vendas, automação, propostas, relatórios, integrações e muito mais.
                   </p>
-                  <Link href="/ploomes/recursos">
-                    <ButtonPurple className="font-bold">
-                      Conhecer Recursos →
-                    </ButtonPurple>
-                  </Link>
+                  <ButtonPurple href="/ploomes/recursos" className="font-bold">
+                    Conhecer Recursos →
+                  </ButtonPurple>
                 </div>
               </Card>
             </div>
